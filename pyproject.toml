@@ -8,7 +8,7 @@ dynamic = ["version"]
 description = "Mission planner for Kerbal Space Program - model orbits, transfers, and maneuvers from outside the game."
 readme = "README.md"
 requires-python = ">=3.10"
-license = "MIT"
+license = "GPL-3.0-only"
 license-files = ["LICENSE"]
 authors = [{ name = "Gautham Kaarthik" , email = "gautitheexplorer@gmail.com"}]
 keywords = [

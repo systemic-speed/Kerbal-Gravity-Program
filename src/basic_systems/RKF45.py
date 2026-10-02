@@ -44,7 +44,7 @@ class RKF45:
         k1 = h * der(state, ut)
         k2 = h * der(state + k1 / 4, ut + h / 4)
         k3 = h * der(state + 3*k1/32 + 9*k2/32, ut + 3*h/8)
-        k4 = h * der(state + 1982*k1/2197 - 7200*k2/2197 + 7296*k3/2197, ut + 12*h/13)
+        k4 = h * der(state + 1932*k1/2197 - 7200*k2/2197 + 7296*k3/2197, ut + 12*h/13)
         k5 = h * der(state + 439*k1/216 - 8*k2 + 3680*k3/513 - 845*k4/4104, ut + h)
         k6 = h * der(state - 8*k1/27 + 2*k2 - 3544*k3/2565 + 1859*k4/4104 - 11*k5/40, ut + h/2)
 

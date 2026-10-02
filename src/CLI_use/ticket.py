@@ -171,6 +171,7 @@ def _collect_bodies(root: Body) -> dict[str, Body]:
 
 @dataclass
 class TicketContext:
+    system: System | None = None
     bodies: dict[str, Body] | None = None
     vessels: dict[str, Spacecraft] | None = None
     cursor_ut: float = float("inf")
@@ -375,8 +376,7 @@ class RKF45Event(TicketEvent):
 
     @classmethod
     def from_json(cls, data: dict, ctx: TicketContext) -> "RKF45Event":
-        del ctx
-        return cls(data["start_ut"], data["end_ut"], data.get("tol", 1e-6))
+        return cls(data["start_ut"], data["end_ut"], ctx.system, data.get("tol", 1e-6)) #type: ignore
 
 
 class FiniteBurnEvent(TicketEvent):
@@ -959,7 +959,7 @@ class Ticket:
     ) -> "Ticket":
         spacecraft = _vessel_from_json(data["vessel"], bodies, mesh_factory)
         ticket = cls(data["identifier"], spacecraft, system, data.get("name", ""), data["vessel"].get("mesh_key"))
-        ctx = TicketContext(bodies, vessels, data["cursor_ut"])
+        ctx = TicketContext(system, bodies, vessels, data["cursor_ut"])
         for event_data in data["events"]:
             event_cls = TicketEvent.registry[event_data["type"]]
             ticket.events.append(event_cls.from_json(event_data, ctx))
