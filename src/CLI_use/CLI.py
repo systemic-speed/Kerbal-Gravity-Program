@@ -189,7 +189,7 @@ class REPL:
             "quit": "quit  - leave the REPL",
             "help": "help [command]  - show help for a command (or all commands)",
             "feedback": "feedback [-y|--yes] <message>\n"
-                        "  Opens a PUBLIC GitHub issue in Gautham-rgb/Kerbal-Gravity-Program.\n"
+                        "  Opens a PUBLIC GitHub issue in systemic-speed/Kerbal-Gravity-Program.\n"
                         "  Collected: your message, kgrp version, and OS info.\n"
                         "  Without -y/--yes it only prints a preview and the submission URL.\n"
                         "  Example: feedback -y the interplanetary planner crashed on go_i duna",
@@ -1186,7 +1186,7 @@ class REPL:
             print(f"v{__version__} of KGRP (Kerbal GRavity Program)")
             print("Made by Gautham_rgb (systemic_speed on PyPi)")
             print("LICENSE: GNU GPLv3")
-            print("Repository link: https://github.com/Gautham-rgb/Kerbal-Gravity-Program")
+            print("Repository link: https://github.com/systemic-speed/Kerbal-Gravity-Program")
             print("Thank you for installing! If you delete this app, I swear")
             print("Uncle Roger will delete you like a Jamie Oliver video. Chilli jam")
             print("does NOT belong in fried rice, and deleting KGRP is a sin like that")
@@ -1241,7 +1241,7 @@ class REPL:
             f"_Submitted via the `kgrp feedback` command._"
         )
         title = f"Feedback: {message[:60]}{'...' if len(message) > 60 else ''}"
-        repo = "Gautham-rgb/Kerbal-Gravity-Program"
+        repo = "systemic-speed/Kerbal-Gravity-Program"
 
         print()
         print(f"This creates a PUBLIC GitHub issue in {repo} with:")
